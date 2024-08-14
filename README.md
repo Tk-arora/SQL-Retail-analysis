@@ -17,6 +17,33 @@ For a retail e-commerce website, I performed a series of SQL tasks to clean and 
   - `UPDATE`: To correct discrepancies in the prices.
   - `SELECT DISTINCT`: To list unique discrepancies for verification.
 
+
+The following query identifies products where the price in the `sales_transaction` table differs from the price in the `Product_inventory` table:
+
+sql
+SELECT DISTINCT pi.ProductID, pi.Price, st.Price 
+FROM sales_transaction AS st 
+JOIN Product_inventory AS pi 
+ON st.ProductID = pi.ProductID
+WHERE pi.Price <> st.Price;
+
+`/Users/tkarora/Desktop/1.png`
+
+UPDATE sales_transaction AS st
+SET price = (SELECT pi.price 
+             FROM Product_inventory pi 
+             WHERE pi.ProductID = st.ProductID)
+WHERE st.ProductID IN 
+    (SELECT pi.ProductID 
+     FROM Product_inventory pi 
+     WHERE st.price <> pi.price);
+
+     `/Users/tkarora/Desktop/2.png`
+
+
+
+
+
  # 3.  Handling Null Values 
 -  Task:  Replaced null values in the `customer_profiles` table with “Unknown”.
 -  SQL Functions Used: 
