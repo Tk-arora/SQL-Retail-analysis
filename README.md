@@ -28,7 +28,7 @@ ON st.ProductID = pi.ProductID
 WHERE pi.Price <> st.Price;
 
 
-![Description of the Image](/Users/tkarora/Desktop/1.png)
+![Description of the Image](./Users/tkarora/Desktop/1.png)
 
 
 
@@ -41,7 +41,7 @@ WHERE st.ProductID IN
      FROM Product_inventory pi 
      WHERE st.price <> pi.price);
 
-![Description of the Image](/Users/tkarora/Desktop/2.png)
+![Description of the Image](./Users/tkarora/Desktop/2.png)
 
 
 
