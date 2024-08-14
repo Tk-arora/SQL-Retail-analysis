@@ -29,10 +29,6 @@ WHERE pi.Price <> st.Price;
 ```
 
 
-![Description of the Image](./Users/tkarora/Desktop/1.png)
-
-
-
 ```
 UPDATE sales_transaction AS st
 SET price = (SELECT pi.price 
@@ -44,9 +40,7 @@ WHERE st.ProductID IN
      WHERE st.price <> pi.price);
 ```
 
-![Description of the Image](./Users/tkarora/Desktop/2.png)
-
-
+![Description of the Image]([https://github.com/Tk-arora/SQL-Retail-analysis/blob/main/Screenshot%202024-08-14%20at%206.12.25%20PM.png])
 
 
  # 3.  Handling Null Values 
