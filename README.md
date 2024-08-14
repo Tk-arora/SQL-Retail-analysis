@@ -27,7 +27,7 @@ JOIN Product_inventory AS pi
 ON st.ProductID = pi.ProductID
 WHERE pi.Price <> st.Price;
 
-`/Users/tkarora/Desktop/1.png`
+/Users/tkarora/Desktop/1.png
 
 UPDATE sales_transaction AS st
 SET price = (SELECT pi.price 
@@ -38,7 +38,7 @@ WHERE st.ProductID IN
      FROM Product_inventory pi 
      WHERE st.price <> pi.price);
 
-     `/Users/tkarora/Desktop/2.png`
+/Users/tkarora/Desktop/2.png
 
 
 
