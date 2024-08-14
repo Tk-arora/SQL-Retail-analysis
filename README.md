@@ -20,18 +20,20 @@ For a retail e-commerce website, I performed a series of SQL tasks to clean and 
 
 The following query identifies products where the price in the `sales_transaction` table differs from the price in the `Product_inventory` table:
 
-sql
+```sql
 SELECT DISTINCT pi.ProductID, pi.Price, st.Price 
 FROM sales_transaction AS st 
 JOIN Product_inventory AS pi 
 ON st.ProductID = pi.ProductID
 WHERE pi.Price <> st.Price;
+```
 
 
 ![Description of the Image](./Users/tkarora/Desktop/1.png)
 
 
 
+```
 UPDATE sales_transaction AS st
 SET price = (SELECT pi.price 
              FROM Product_inventory pi 
@@ -40,6 +42,7 @@ WHERE st.ProductID IN
     (SELECT pi.ProductID 
      FROM Product_inventory pi 
      WHERE st.price <> pi.price);
+```
 
 ![Description of the Image](./Users/tkarora/Desktop/2.png)
 
